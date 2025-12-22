@@ -41,7 +41,7 @@ services:
     build: ./frontend
     container_name: axy-frontend
     ports:
-      - "8081:80"  # CHANGED PORT
+      - "8080:80"  
     depends_on:
       - backend
     networks:
