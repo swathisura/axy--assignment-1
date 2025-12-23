@@ -45,7 +45,9 @@ All services running in isolated containers
  Architecture (Local)
 text
 Your Browser → Frontend (Nginx:8080) → Backend (Node.js:3000) → Database (PostgreSQL:5432)
-🛡️ Security Features
+
+* Security Features
+  
 -> Only frontend exposed (port 8080)
 
 -> Backend/database in private Docker network
@@ -112,12 +114,12 @@ Monitoring: CloudWatch included for observability
 
 -> No SSH access from internet
 
-📁 Project Structure
+* Project Structure
 
 text
 axy-devops-assignment/
 │
-├── 🐳 Docker Compose Files (Part 1)
+├──  Docker Compose Files (Part 1)
 │   ├── docker-compose.yml          # Run all 3 services locally
 │   ├── backend/                    # Node.js API
 │   │   ├── Dockerfile             # Build Node.js container
@@ -131,7 +133,7 @@ axy-devops-assignment/
 │   └── scripts/                    # Database setup
 │       └── init-db.sql            # Initialize PostgreSQL
 │
-├── ☁️ Terraform Files (Part 2)
+├──  Terraform Files (Part 2)
 │   ├── main.tf                    # Main infrastructure code
 │   ├── variables.tf               # Configurable parameters
 │   ├── outputs.tf                 # Output values (URLs, IDs)
@@ -139,7 +141,7 @@ axy-devops-assignment/
 │   ├── terraform.tfvars           # Your specific values
 │   └── ec2_user_data.sh           # Script that runs on EC2 startup
 │
-└── 📄 Documentation
+└──  Documentation
     ├── README.md                  # This file
     └── .gitignore                 # Git ignore rules
     
