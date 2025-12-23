@@ -1,6 +1,6 @@
-  🚀 Axy DevOps Engineer Assignment Solution
+   Axy DevOps Engineer Assignment Solution
   
-📋 Project Overview
+* Project Overview
 This project demonstrates a complete three-tier microservices application with:
 
 Part 1: Local development using Docker Compose
@@ -9,21 +9,21 @@ Part 2: Production deployment on AWS using Infrastructure as Code
 
 I built this solution from scratch, focusing on security, scalability, and best practices.
 
-🎯 What's Inside
-📦 Application Components
+1. What's Inside
+2. Application Components
 Frontend: HTML + JavaScript served via Nginx
 
 Backend: Node.js + Express REST API
 
 Database: PostgreSQL with persistent storage
 
-🏗️ Infrastructure
+* Infrastructure
 Local: Docker Compose with private networking
 
 Production: AWS with EC2 Auto Scaling, RDS, and Load Balancer
 
-🖥️ Part 1: Local Development (Docker Compose)
-✅ Quick Start (2 Minutes)
+ Part 1: Local Development (Docker Compose)
+
 bash
 # 1. Clone and navigate
 git clone <repository-url>
@@ -33,7 +33,7 @@ cd axy-devops-assignment
 docker-compose up --build
 
 # 3. Open browser: http://localhost:8080
-🎮 What You'll See
+-> What You'll See
 Frontend webpage showing "Axy DevOps Assignment"
 
 Real-time backend health status
@@ -42,22 +42,23 @@ Interactive "Get Message" button fetching data from PostgreSQL
 
 All services running in isolated containers
 
-🔧 Architecture (Local)
+ Architecture (Local)
 text
 Your Browser → Frontend (Nginx:8080) → Backend (Node.js:3000) → Database (PostgreSQL:5432)
 🛡️ Security Features
-✅ Only frontend exposed (port 8080)
+-> Only frontend exposed (port 8080)
 
-✅ Backend/database in private Docker network
+-> Backend/database in private Docker network
 
-✅ Database not accessible from host
+-> Database not accessible from host
 
-✅ Environment variables for sensitive data
+-> Environment variables for sensitive data
 
-✅ Health checks for all services
+-> Health checks for all services
 
-☁️ Part 2: AWS Production Infrastructure
-🏗️ Production Architecture
+ Part 2: AWS Production Infrastructure
+ 
+* Production Architecture
 text
 Internet Users
        ↓
@@ -68,7 +69,8 @@ Internet Users
 [ EC2 Instances (t3.small) ] ← Runs Docker containers with our app
        ↓
 [ RDS PostgreSQL ] ← Multi-AZ, encrypted, daily backups
-🚀 Deploy to AWS
+
+* Deploy to AWS 
 bash
 # 1. Configure AWS credentials
 aws configure
@@ -85,29 +87,33 @@ terraform apply
 # 5. Get your application URL
 terraform output alb_dns_name
 # Open: http://<your-alb-url>
-💰 Cost Optimized Design
-EC2: t3.small instances with Auto Scaling (2-4)
 
-RDS: db.t3.small with Multi-AZ for high availability
+* Cost Optimized Design
+  
+  EC2: t3.small instances with Auto Scaling (2-4)
 
-Load Balancer: Single ALB for cost efficiency
+  RDS: db.t3.small with Multi-AZ for high availability
+
+  Load Balancer: Single ALB for cost efficiency
 
 Monitoring: CloudWatch included for observability
 
-🛡️ Production Security
-🔒 Database in private subnet (no internet access)
+* Production Security
+  
+-> Database in private subnet (no internet access)
 
-🔒 EC2 instances in private subnet
+-> EC2 instances in private subnet
 
-🔒 Only Load Balancer is public-facing
+-> Only Load Balancer is public-facing
 
-🔒 Security groups with least privilege
+-> Security groups with least privilege
 
-🔒 Encrypted RDS storage
+-> Encrypted RDS storage
 
-🔒 No SSH access from internet
+-> No SSH access from internet
 
 📁 Project Structure
+
 text
 axy-devops-assignment/
 │
@@ -136,61 +142,67 @@ axy-devops-assignment/
 └── 📄 Documentation
     ├── README.md                  # This file
     └── .gitignore                 # Git ignore rules
-🔍 Key Features Demonstrated
-✅ Docker & Containerization
-Multi-container orchestration
+    
+* Key Features Demonstrated
+  
+-> Docker & Containerization
+   Multi-container orchestration
 
-Inter-container networking
+   Inter-container networking
 
-Volume persistence for database
+   Volume persistence for database
 
-Health checks and dependencies
+   Health checks and dependencies
 
-Environment-based configuration
+   Environment-based configuration
 
-✅ AWS Cloud Architecture
-VPC with public/private subnets
+-> AWS Cloud Architecture
 
-EC2 Auto Scaling for high availability
+   VPC with public/private subnets
 
-RDS PostgreSQL with backups
+   EC2 Auto Scaling for high availability
 
-Application Load Balancer
+   RDS PostgreSQL with backups
 
-Security groups and IAM roles
+   Application Load Balancer
 
-✅ Infrastructure as Code
-Complete Terraform codebase
+   Security groups and IAM roles
 
-Modular and reusable configuration
+-> Infrastructure as Code
 
-State management
+   Complete Terraform codebase
 
-Variable customization
+   Modular and reusable configuration
 
-✅ Security Best Practices
-Principle of least privilege
+   State management
 
-Private subnets for sensitive resources
+   Variable customization
 
-No public database access
+-> Security Best Practices
 
-Encrypted data at rest
+   Principle of least privilege
 
-Secure credential management
+   Private subnets for sensitive resources
 
-✅ Monitoring & Maintenance
-Health checks at every layer
+   No public database access
 
-Auto-scaling based on load
+   Encrypted data at rest
 
-Database backups enabled
+   Secure credential management
 
-CloudWatch integration
+-> Monitoring & Maintenance
 
-Logging configuration
+   Health checks at every layer
 
-🎯 API Endpoints
+   Auto-scaling based on load
+
+   Database backups enabled
+
+   CloudWatch integration
+
+   Logging configuration
+
+** API Endpoints
 Local Development
 text
 GET http://localhost:8080/api/health
@@ -202,9 +214,10 @@ Production (After AWS Deployment)
 text
 GET http://<alb-dns-name>/api/health
 GET http://<alb-dns-name>/api/message
-🔧 Testing & Verification
-Local Testing
-bash
+
+* Testing & Verification
+ Local Testing
+ bash
 # Verify all services are running
 docker-compose ps
 
@@ -221,8 +234,10 @@ bash
 ALB_URL=$(terraform output -raw alb_dns_name)
 curl http://$ALB_URL/api/health
 curl http://$ALB_URL/api/message
-⚡ Performance & Scaling
-Auto Scaling Rules
+
+* Performance & Scaling
+
+ # Auto Scaling Rules
 Scale Up: When CPU > 70% for 5 minutes
 
 Scale Down: When CPU < 30% for 5 minutes
@@ -230,15 +245,16 @@ Scale Down: When CPU < 30% for 5 minutes
 Instance Range: 2 to 4 t3.small instances
 
 High Availability
-✅ Multi-AZ deployment (RDS)
 
-✅ Load balancer health checks
+-> Multi-AZ deployment (RDS)
 
-✅ Auto-replacement of unhealthy instances
+->Load balancer health checks
 
-✅ Database failover capability
+-> Auto-replacement of unhealthy instances
 
-🧹 Cleanup
+-> Database failover capability
+
+* Cleanup
 Local Environment
 bash
 # Stop and remove containers
@@ -251,56 +267,46 @@ bash
 # Destroy all AWS resources
 terraform destroy
 
-# Confirm and remove
-yes | terraform destroy
-⚠️ Important: Running terraform destroy will delete all AWS resources to avoid ongoing charges.
+* Skills Demonstrated
+  
+   Skill	How It's Demonstrated
+   Docker	Multi-container setup, networking, volumes
+   AWS	VPC, EC2, RDS, ALB, Auto Scaling, IAM
+   Terraform	Infrastructure as Code, modular design
+   Security	Least privilege, private networks, encryption
+   Networking	VPC design, subnetting, routing
+   CI/CD	Infrastructure automation, deployment scripts
+   Monitoring	Health checks, CloudWatch, logging
+   Database	PostgreSQL, RDS, backups, connection pooling
 
-🎓 Skills Demonstrated
-Skill	How It's Demonstrated
-Docker	Multi-container setup, networking, volumes
-AWS	VPC, EC2, RDS, ALB, Auto Scaling, IAM
-Terraform	Infrastructure as Code, modular design
-Security	Least privilege, private networks, encryption
-Networking	VPC design, subnetting, routing
-CI/CD	Infrastructure automation, deployment scripts
-Monitoring	Health checks, CloudWatch, logging
-Database	PostgreSQL, RDS, backups, connection pooling
-📞 Support & Questions
-Common Issues & Solutions
-Port 8080 already in use
+* Common Issues & Solutions
+  Port 8080 already in use
 
-bash
-# Change port in docker-compose.yml
-ports:
+  bash
+  # Change port in docker-compose.yml
+  ports:
   - "8080:80"  # Change 9090 to another port
-AWS credentials error
+  AWS credentials error
 
-bash
-aws configure
-# Enter Access Key, Secret Key, Region (us-east-1)
-Terraform initialization error
+  bash
+  aws configure
+  # Enter Access Key, Secret Key, Region (us-east-1)
+  Terraform initialization error
 
-bash
-rm -rf .terraform
-terraform init
-Database connection failed
+  bash
+  rm -rf .terraform
+  terraform init
+  Database connection failed
 
-Check security group rules
+  Check security group rules
 
-Verify database endpoint
+ Verify database endpoint
 
-Check credentials in environment variables
+ Check credentials in environment variables
 
-📚 References
-Docker Compose Documentation
 
-Terraform AWS Provider
+* Final Notes
 
-AWS EC2 User Guide
-
-PostgreSQL Documentation
-
-🌟 Final Notes
 This solution represents a production-ready implementation of the assignment requirements. It balances:
 
 Simplicity: Easy to run locally with Docker
